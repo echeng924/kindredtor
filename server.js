@@ -27,9 +27,9 @@ app.use(express.static(path.join(__dirname, '/dist')));
 app.get('/', (request, response) => {
   response.sendFile(path.join(__dirname, 'dist/index.html'));
 });
-app.use(fallback('index.html', { root: __dirname + '/dist' }))
+// app.use(fallback('index.html', { root: __dirname + '/dist' }))
 
 const port = process.env.PORT;
-app.list(port, () => {
+app.listen(port, () => {
   console.log(`Listening on Port ${port}`);
 });

@@ -1,4 +1,4 @@
-CREATE DATABASE networking
+CREATE DATABASE networking;
 
 \c networking
 
@@ -13,7 +13,7 @@ CREATE TABLE members (
   role VARCHAR NOT NULL,
   current_industry VARCHAR,
   interested_tech VARCHAR NOT NULL,
-  blurb TEXT NOT NULL,
+  blurb TEXT NOT NULL
 );
 
 CREATE TABLE matches (
@@ -22,5 +22,5 @@ CREATE TABLE matches (
   last_name VARCHAR NOT NULL,
   email VARCHAR NOT NULL,
   interested_tech VARCHAR NOT NULL,
-  member_id VARCHAR NOT NULL,
+  member_id VARCHAR NOT NULL
 );
