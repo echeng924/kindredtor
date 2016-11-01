@@ -6,7 +6,7 @@ class MatchesController {
       res.status(200).json(matches);
     });
   }
-  static getRandomMatch(req, res) {
+  static getOneMatch(req, res) {
     MatchDAO.findBy(req.params.id)
              .then((match) => {
                 res.status(200).json(match);
