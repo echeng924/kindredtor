@@ -1,6 +1,6 @@
 #Kindredtor
 
-##Netowrk smarter
+##Network smarter
 
 ###Technologies: 
 - React
