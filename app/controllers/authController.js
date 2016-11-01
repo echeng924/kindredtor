@@ -1,5 +1,5 @@
 const MemberDAO = require('../services/MemberDAO');
-const createToke = require('../utils/createToken');
+const createToken = require('../utils/createToken');
 const bcrypt = require('bcrypt');
 
 class AuthController {
