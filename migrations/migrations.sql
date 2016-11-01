@@ -21,5 +21,6 @@ CREATE TABLE matches (
   first_name VARCHAR NOT NULL,
   last_name VARCHAR NOT NULL,
   email VARCHAR NOT NULL,
+  interested_tech VARCHAR NOT NULL,
   member_id VARCHAR NOT NULL,
 );
