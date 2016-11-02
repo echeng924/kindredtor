@@ -2,13 +2,13 @@ import React from 'react';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 import App from '../App.jsx';
 import Initial from '../Home/Initial.jsx';
-import RegisterForm from '../Auth/registerForm.jsx';
+import Auth from '../Auth/Auth.jsx';
 
 const Routes = () => {
   return(
     <Router history={hashHistory}>
       <Route path='/' component={App} />
-      <Route path='/register' component={RegisterForm} />
+      <Route path='/register' component={Auth} />
     </Router>
   )
 }

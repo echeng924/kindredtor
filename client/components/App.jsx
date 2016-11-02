@@ -6,9 +6,11 @@ class App extends Component {
     return (
       <div>
         From app.
-
+        <li>Home</li>
+        <li>About</li>
+        <li>Get Started</li>
       </div>
-    )
+    );
   }
 }
 

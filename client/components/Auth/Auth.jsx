@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import request from 'superagent';
 import cookie from 'react-cookie';
-import RegisterForm from 'registerForm.jsx';
+import RegisterForm from './registerForm.jsx';
 
 class Auth extends Component {
   constructor(props) {
@@ -53,7 +53,7 @@ class Auth extends Component {
       } else {
         memberDisplayElement = (
           <div>
-            <p>Registration Form></p>
+            <p>Registration Form</p>
             <RegisterForm />
           </div>
         )
