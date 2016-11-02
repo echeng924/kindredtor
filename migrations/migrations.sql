@@ -16,11 +16,17 @@ CREATE TABLE members (
   blurb TEXT NOT NULL
 );
 
+-- CREATE TABLE matches (
+--   id SERIAL PRIMARY KEY,
+--   first_name VARCHAR NOT NULL,
+--   last_name VARCHAR NOT NULL,
+--   email VARCHAR NOT NULL,
+--   interested_tech VARCHAR NOT NULL,
+--   member_id VARCHAR NOT NULL
+-- );
+
 CREATE TABLE matches (
   id SERIAL PRIMARY KEY,
-  first_name VARCHAR NOT NULL,
-  last_name VARCHAR NOT NULL,
-  email VARCHAR NOT NULL,
-  interested_tech VARCHAR NOT NULL,
-  member_id VARCHAR NOT NULL
+  member1_id INTEGER NOT NULL,
+  member2_id INTEGER NOT NULL
 );
