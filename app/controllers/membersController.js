@@ -7,7 +7,7 @@ class MembersController {
     });
   }
   static getOneMember(req, res) {
-    MemberDAO.findBy(req.params.interested_tech)
+    MemberDAO.findBy(req.params.interested_tech, req.params.location)
              .then((member) => {
                 res.status(200).json(question);
              });
