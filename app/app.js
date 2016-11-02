@@ -30,7 +30,6 @@ app.use(morgan('dev'));
 app.use('/auth', authentication);
 app.use('/auth', authRouter);
 app.use('/api/members', memberRouter);
-
 app.use('/api/matches', matchRouter);
 
 module.exports = app;
