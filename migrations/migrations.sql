@@ -13,7 +13,8 @@ CREATE TABLE members (
   role VARCHAR NOT NULL,
   current_industry VARCHAR,
   interested_tech VARCHAR NOT NULL,
-  blurb TEXT NOT NULL
+  blurb TEXT NOT NULL,
+  picture TEXT NOT NULL
 );
 
 -- CREATE TABLE matches (

@@ -3,9 +3,9 @@ import { Link } from 'react-router';
 
 class Initial extends Component {
   render() {
-    <span>
-      <li><Link to="/">Home</Link></li>
-    </span>
+    <div>
+      some kind of navigation
+    </div>
   }
 }
 
