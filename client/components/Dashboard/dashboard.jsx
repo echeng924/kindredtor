@@ -34,10 +34,10 @@ class Dashboard extends Component {
   //          .then((matches) => {
   //            this.setState({matches: matches})
   //          }).catch((err) => {
-  //             console.log(err);
+  //             console.log(err)
   //          });
   // }
-  //take matches from state, map over them, return first name, last name, email, current title,
+  //take matches from state, map over them, return first name, last name, email, current title, ...and other things
   render() {
     let dashboardElements;
     if(this.state.profile) {
@@ -64,4 +64,4 @@ export default Dashboard;
 
 
 //get All request to server for matches at '/api/matches'
-//use all and split into individual connection profile
+//will be an array, map over and create individual match profile

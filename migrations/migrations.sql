@@ -16,6 +16,8 @@ CREATE TABLE members (
   picture BYTEA NOT NULL
 );
 
+--if possible multiple selection for tech...change for primary tech used
+
 -- CREATE TABLE matches (
 --   id SERIAL PRIMARY KEY,
 --   first_name VARCHAR NOT NULL,
