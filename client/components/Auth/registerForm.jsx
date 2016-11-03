@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 
+const propTypes = {
+  handleSignUpSubmit: React.PropTypes.func,
+};
+
 class RegisterForm extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       email: '',
       password: '',
@@ -11,7 +15,7 @@ class RegisterForm extends Component {
       industry: '',
       interested_tech: '',
       blurb: '',
-      file: '',
+      picture: '',
       imagePreviewUrl: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,18 +36,19 @@ class RegisterForm extends Component {
     e.preventDefault();
 
     let reader = new FileReader();
-    let file = e.target.files[0];
-    reader.onloadend = () => {
+    let picture = e.target.files[0];
+    reader.onload = (upload) => {
     this.setState({
-      file: file,
-      imagePreviewUrl: reader.result
+      picture: upload.target.result,
       });
-    }
-    reader.readAsDataURL(file)
+    };
+    reader.readAsDataURL(picture);
   }
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.handleSignUpSubmit(this.state);
+    console.log('success signup');
   }
 
   render() {
@@ -91,6 +96,12 @@ class RegisterForm extends Component {
             <option value="A">Apple</option>
             <option value="B">Banana</option>
           </select>
+          <select name="role" value={this.state.role} onChange={this.handleInputChange}>
+            <option value="A">Current Role:</option>
+            <option value="A">Apple</option>
+            <option value="B">Banana</option>
+            <option value="C">Cat</option>
+          </select>
           <select name="interested_tech" value={this.state.interested_tech} onChange={this.handleInputChange}>
             <option value="A">Languages:</option>
             <option value="A">Apple</option>
@@ -113,4 +124,7 @@ class RegisterForm extends Component {
     );
   }
 }
+
+RegisterForm.propTypes = propTypes;
+
 export default RegisterForm;

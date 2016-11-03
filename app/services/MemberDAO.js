@@ -9,6 +9,9 @@ class MemberDAO {
   static findBy({ interested_tech, role }) {
     return db.one(sql.find, [interested_tech, role], row => new Member(row));
   }
+  static findByEmail({ email }) {
+    return db.one(sql.findEmail, [email], row => new Member(row));
+  }
   static create({ email, password, first_name, last_name, current_title, role, current_industry, interested_tech, blurb, picture }) {
     return db.one(sql.create, [email, password, first_name, last_name, current_title, role, current_industry, interested_tech, blurb, picture], row => new Member(row))
              .catch((err) => console.log('error', err));

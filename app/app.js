@@ -10,8 +10,10 @@ const session = require('express-session');
 
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
+//app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '10mb'}));
+app.use(bodyParser.urlencoded({limit: '10mb', extended: true}));
 app.use(cookieParser());
 
 app.use(session({

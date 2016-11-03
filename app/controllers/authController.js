@@ -6,11 +6,12 @@ class AuthController {
   static login(req, res) {
     console.log('logging in auth');
     const { email, password } = req.body;
-    MemberDAO.findBy({ email })
+    MemberDAO.findByEmail({ email })
              .then((member) => {
                 if(!bcrypt.compareSync(password, member.password)) {
                   res.status(401).end();
                 } else {
+                  member.picture = null;
                   req.session.currentMember = member;
                   const token = createToken(member);
                   res.cookie('token', token);
@@ -33,10 +34,12 @@ class AuthController {
     let interested_tech = req.body.interested_tech;
     let blurb = req.body.blurb;
     let picture = req.body.picture;
+    console.log(picture);
     if (email.length > 0 && password.length > 0) {
       password = bcrypt.hashSync(password, 10);
       MemberDAO.create({ email, password, first_name, last_name, current_title, role, current_industry, interested_tech, blurb, picture })
                .then((member) => {
+                member.picture = null;
                   req.session.currentMember = member;
                   const token = createToken(member);
                   res.cookie('token', token);
@@ -51,6 +54,22 @@ class AuthController {
     req.session.currentMember = null;
     res.clearCookie('token');
     res.status(204).end();
+  }
+  static profile(req, res) {
+    console.log(req.session);
+    res.status(200).json(req.session.currentMember);
+  }
+
+  static picture(req, res) {
+    let email = req.session.currentMember.email;
+    MemberDAO.findByEmail({ email })
+             .then((member) => {
+                  res.status(200).send(member.picture);
+             })
+             .catch((err) => {
+                console.error(err);
+                res.status(401).end();
+             });
   }
 }
 

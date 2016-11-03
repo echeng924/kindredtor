@@ -6,7 +6,7 @@ function authenticate(req, res, next) {
   const nonRestricedRoutes = ['/signup', '/login', '/signout'];
 
   if (nonRestricedRoutes.includes(req.path)) { return next(); }
-  if (token && req.session.currentAdmin) {
+  if (token && req.session.currentMember) {
     jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
       if (err) {
         return res.status(403).end();
