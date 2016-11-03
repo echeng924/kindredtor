@@ -3,8 +3,8 @@ const sql = require('../config/sqlProvider.js').matches;
 const Match = require('../models/Match');
 
 class MatchDAO {
-  static all() {
-    return db.map(sql.all, [mentor_id], row => new Match(row));
+  static all({ id }) {
+    return db.map(sql.all, [id], row => new Match(row));
   }
   static findBy(keyValue) {
     const key = Object.keys(keyValue)[0];

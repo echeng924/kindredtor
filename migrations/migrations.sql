@@ -13,7 +13,7 @@ CREATE TABLE members (
   current_industry VARCHAR,
   interested_tech VARCHAR NOT NULL,
   blurb TEXT NOT NULL,
-  picture BLOB NOT NULL
+  picture BYTEA NOT NULL
 );
 
 -- CREATE TABLE matches (

@@ -8,7 +8,6 @@ class RegisterForm extends Component {
       password: '',
       first_name: '',
       last_name: '',
-      location: '',
       industry: '',
       interested_tech: '',
       blurb: '',
@@ -17,6 +16,7 @@ class RegisterForm extends Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleImageChange = this.handleImageChange.bind(this);
   }
 
   handleInputChange(e) {
@@ -26,6 +26,20 @@ class RegisterForm extends Component {
     const updated = {};
     updated[name] = value;
     this.setState(updated);
+  }
+
+  handleImageChange(e) {
+    e.preventDefault();
+
+    let reader = new FileReader();
+    let file = e.target.files[0];
+    reader.onloadend = () => {
+    this.setState({
+      file: file,
+      imagePreviewUrl: reader.result
+      });
+    }
+    reader.readAsDataURL(file)
   }
 
   handleSubmit(e) {
@@ -65,11 +79,6 @@ class RegisterForm extends Component {
             value={this.state.last_name}
             onChange={this.handleInputChange}
           />
-          <select id="locationDropdown" value={this.state.location} onChange={this.handleInputChange}>
-            <option value="A">Location:</option>
-            <option value="A">Apple</option>
-            <option value="B">Banana</option>
-          </select>
           <input
             type="text"
             name="current_title"
@@ -77,25 +86,26 @@ class RegisterForm extends Component {
             value={this.state.current_title}
             onChange={this.handleInputChange}
           />
-          <select id="industryDropdown" value={this.state.industry} onChange={this.handleInputChange}>
+          <select name="industry" value={this.state.industry} onChange={this.handleInputChange}>
             <option value="A">Current Industry:</option>
             <option value="A">Apple</option>
             <option value="B">Banana</option>
           </select>
-          <select id="languageDropdown" value={this.state.interested_tech} onChange={this.handleInputChange}>
+          <select name="interested_tech" value={this.state.interested_tech} onChange={this.handleInputChange}>
             <option value="A">Languages:</option>
             <option value="A">Apple</option>
             <option value="B">Banana</option>
           </select>
           <textarea
             name="blurb"
-            placeholder="Tell us about you."
+            placeholder="Tell us about you..."
             value={this.state.blurb}
             onChange={this.handleInputChange}
           />
           <input
             name="photo"
             type="file"
+            onChange={this.handleImageChange}
           />
           <input type="submit" value="Submit" />
         </form>

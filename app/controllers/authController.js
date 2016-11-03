@@ -27,15 +27,15 @@ class AuthController {
     let password = req.body.password;
     let first_name = req.body.first_name;
     let last_name = req.body.last_name;
-    let location = req.body.location;
     let current_title = req.body.current_title;
     let role = req.body.role;
     let current_industry = req.body.current_industry;
     let interested_tech = req.body.interested_tech;
     let blurb = req.body.blurb;
+    let picture = req.body.picture;
     if (email.length > 0 && password.length > 0) {
       password = bcrypt.hashSync(password, 10);
-      MemberDAO.create({ email, password, first_name, last_name, location, current_title, role, current_industry, interested_tech, blurb })
+      MemberDAO.create({ email, password, first_name, last_name, current_title, role, current_industry, interested_tech, blurb, picture })
                .then((member) => {
                   req.session.currentMember = member;
                   const token = createToken(member);

@@ -2,7 +2,7 @@ const MatchDAO = require('../services/MatchDAO.js');
 
 class MatchesController {
   static getAllMatches(req, res) {
-    MatchDAO.all(req.params.id).then((matches) => {
+    MatchDAO.all({id: req.params.id}).then((matches) => {
       res.status(200).json(matches);
     });
   }
