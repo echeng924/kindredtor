@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 import request from 'superagent';
 import cookie from 'react-cookie';
 import RegisterForm from './registerForm.jsx';
@@ -52,13 +52,15 @@ class Auth extends Component {
   render() {
     let memberDisplayElement;
     if(this.state.profile) {
+        // this.props.router.push('/dashboard');
       memberDisplayElement = (
         <div>
-          <p>You are logged in. {this.state.profile.blurb} <img src="/auth/picture"/></p>
+          <p>You are logged in. {this.state.profile.blurb} <img width="500" src="/auth/picture"/></p>
           <button onClick={this.signOut}> Log Out! </button>
         </div>
       )
       } else {
+        // this.props.router.push('/register');
         memberDisplayElement = (
           <div>
             <h3>Register or Login </h3>

@@ -34,7 +34,8 @@ class AuthController {
     let interested_tech = req.body.interested_tech;
     let blurb = req.body.blurb;
     let picture = req.body.picture;
-    console.log(picture);
+    picture = new Buffer(picture.replace(/^data:image\/\w+;base64,/, ""), 'base64');
+    //console.log(picture);
     if (email.length > 0 && password.length > 0) {
       password = bcrypt.hashSync(password, 10);
       MemberDAO.create({ email, password, first_name, last_name, current_title, role, current_industry, interested_tech, blurb, picture })
