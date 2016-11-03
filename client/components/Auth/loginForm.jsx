@@ -49,7 +49,7 @@ class LoginForm extends Component {
           />
           <input
             type="submit"
-            value="Submit"
+            value="Log In"
           />
         </form>
       </div>

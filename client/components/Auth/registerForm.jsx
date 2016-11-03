@@ -92,7 +92,7 @@ class RegisterForm extends Component {
             onChange={this.handleInputChange}
           />
           <select name="industry" value={this.state.industry} onChange={this.handleInputChange}>
-            <option value="A">Current Industry:</option>
+            <option value="" disabled selected>Current Industry:</option>
             <option value="Biotechnology">Biotechnology</option>
             <option value="Education">Education</option>
             <option value="Energy">Energy</option>
@@ -106,12 +106,12 @@ class RegisterForm extends Component {
             <option value="Travel">Travel</option>
           </select>
           <select name="role" value={this.state.role} onChange={this.handleInputChange}>
-            <option value="A">Current Role:</option>
+            <option value="" disabled selected>Interested in being a:</option>
             <option value="Mentor">Mentor</option>
             <option value="Mentee">Mentee</option>
           </select>
           <select name="interested_tech" value={this.state.interested_tech} onChange={this.handleInputChange}>
-            <option value="A">Languages:</option>
+            <option value="" disabled selected>What is your primary technology:</option>
             <option value="SQL">SQL</option>
             <option value="Java">Java</option>
             <option value="JavaScript">JavaScript</option>
@@ -133,7 +133,7 @@ class RegisterForm extends Component {
             type="file"
             onChange={this.handleImageChange}
           />
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Register" />
         </form>
       </div>
     );
