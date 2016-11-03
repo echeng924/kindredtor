@@ -4,6 +4,9 @@ import request from 'superagent';
 import cookie from 'react-cookie';
 import RegisterForm from './registerForm.jsx';
 import LoginForm from './loginForm.jsx';
+import NavBarLoggedIn from '../Nav/NavBarLoggedIn.jsx';
+import NavBarLoggedOut from '../Nav/NavBarLoggedOut.jsx';
+// import Dashboard from '../Dashboard/dashboard.jsx';
 
 class Auth extends Component {
   constructor(props) {
@@ -46,7 +49,7 @@ class Auth extends Component {
     request.post('/auth/signup')
            .send(memberDetails)
            .then(() => {
-              this.updateAuth()
+              this.updateAuth();
            });
   }
   render() {
@@ -55,31 +58,36 @@ class Auth extends Component {
         // this.props.router.push('/dashboard');
       memberDisplayElement = (
         <div>
-          <p>You are logged in. {this.state.profile.blurb} <img width="500" src="/auth/picture"/></p>
-          <button onClick={this.signOut}> Log Out! </button>
+          <div>
+            <NavBarLoggedIn onClick={this.signOut} />
+          </div>
+          <div>
+            <p>You are logged in.></p>
+            <h3>Current Profile: </h3>
+            <p>{this.state.profile.blurb}</p>
+            <p>You are logged in. {this.state.profile.blurb} <img width="200" src="/auth/picture"/></p>
+          </div>
         </div>
-      )
+      );
       } else {
         // this.props.router.push('/register');
         memberDisplayElement = (
           <div>
-            <h3>Register or Login </h3>
-            <RegisterForm handleSignUpSubmit={this.signUp}/>
-            <LoginForm handleLoginSubmit={this.logIn} />
+            <div>
+              <NavBarLoggedOut />
+            </div>
+            <div>
+              <h3>Register or Login </h3>
+              <RegisterForm handleSignUpSubmit={this.signUp}/>
+              <LoginForm handleLoginSubmit={this.logIn} />
+            </div>
           </div>
-        )
+        );
       }
       return (
         <div>
           {memberDisplayElement}
 
-          <div>
-            <button>
-              <Link to='/'>
-                Home
-              </Link>
-            </button>
-          </div>
         </div>
       );
     }
