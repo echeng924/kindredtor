@@ -8,13 +8,12 @@ CREATE TABLE members (
   password VARCHAR NOT NULL,
   first_name VARCHAR NOT NULL,
   last_name VARCHAR NOT NULL,
-  location VARCHAR NOT NULL,
   current_title VARCHAR NOT NULL,
   role VARCHAR NOT NULL,
   current_industry VARCHAR,
   interested_tech VARCHAR NOT NULL,
   blurb TEXT NOT NULL,
-  picture TEXT NOT NULL
+  picture BLOB NOT NULL
 );
 
 -- CREATE TABLE matches (
@@ -28,6 +27,6 @@ CREATE TABLE members (
 
 CREATE TABLE matches (
   id SERIAL PRIMARY KEY,
-  member1_id INTEGER NOT NULL,
-  member2_id INTEGER NOT NULL
+  mentor_id INTEGER NOT NULL,
+  mentee_id INTEGER NOT NULL
 );

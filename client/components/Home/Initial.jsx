@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 class Initial extends Component {
   render() {
     <div>
-      some kind of navigation
+      some kind of navigation.
     </div>
   }
 }

@@ -2,7 +2,7 @@ const MatchDAO = require('../services/MatchDAO.js');
 
 class MatchesController {
   static getAllMatches(req, res) {
-    MatchDAO.all().then((matches) => {
+    MatchDAO.all(req.params.id).then((matches) => {
       res.status(200).json(matches);
     });
   }
@@ -14,11 +14,8 @@ class MatchesController {
   }
   static create(req, res) {
     const matchData = {
-      first_name: req.body.first_name,
-      last_name: req.body.last_name,
-      email: req.body.email,
-      interested_tech: req.body.interested_tech,
-      match_id: req.body.match_id,
+      mentor_id: req.body.mentor_id,
+      mentee_id: req.body.mentee_id,
     };
     MatchDAO.create(matchData)
              .then((match) => res.status(200).json(match));

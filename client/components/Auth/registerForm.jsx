@@ -12,6 +12,8 @@ class RegisterForm extends Component {
       industry: '',
       interested_tech: '',
       blurb: '',
+      file: '',
+      imagePreviewUrl: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -90,6 +92,10 @@ class RegisterForm extends Component {
             placeholder="Tell us about you."
             value={this.state.blurb}
             onChange={this.handleInputChange}
+          />
+          <input
+            name="photo"
+            type="file"
           />
           <input type="submit" value="Submit" />
         </form>

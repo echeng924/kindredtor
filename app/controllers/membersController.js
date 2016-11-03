@@ -7,9 +7,9 @@ class MembersController {
     });
   }
   static getOneMember(req, res) {
-    MemberDAO.findBy(req.params.interested_tech, req.params.location)
+    MemberDAO.findBy(req.query.interested_tech, req.query.role)
              .then((member) => {
-                res.status(200).json(question);
+                res.status(200).json(member);
              });
   }
   static create(req, res) {
@@ -18,12 +18,12 @@ class MembersController {
       password: req.body.password,
       first_name: req.body.first_name,
       last_name: req.body.last_name,
-      location: req.body.location,
       current_title: req.body.current_title,
       role: req.body.role,
       current_industry: req.body.current_industry,
       interested_tech: req.body.interested_tech,
       blurb: req.body.blurb,
+      picture: req.body.picture,
     };
     MemberDAO.create(memberData)
              .then((member) => res.status(200).json(member));
@@ -32,12 +32,12 @@ class MembersController {
     const updateData = {
       first_name: req.body.first_name,
       last_name: req.body.last_name,
-      location: req.body.location,
       current_title: req.body.current_title,
       role: req.body.role,
       current_industry: req.body.current_industry,
       interested_tech: req.body.interested_tech,
       blurb: req.body.blurb,
+      picture: req.body.picture,
     };
     MemberDAO.update(updateData)
              .then(() => res.status(204).end());
