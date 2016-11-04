@@ -31,8 +31,8 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div id="loginFormContainer">
+        <form id="loginForm" onSubmit={this.handleSubmit}>
           <input
             type="text"
             value={this.state.email}
