@@ -31,7 +31,8 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <div id="loginFormContainer">
+      <div className="loginFormContainer">
+        <h2>Log In </h2>
         <form id="loginForm" onSubmit={this.handleSubmit}>
           <input
             type="text"

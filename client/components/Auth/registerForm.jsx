@@ -53,8 +53,9 @@ class RegisterForm extends Component {
 
   render() {
     return (
-      <div className="registerForm">
-        <form onSubmit={this.handleSubmit}>
+      <div className="registerFormContainer">
+       <h2>Register</h2>
+        <form id="registerForm" onSubmit={this.handleSubmit}>
           <input
             type="text"
             name="email"

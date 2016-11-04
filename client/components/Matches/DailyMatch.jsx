@@ -31,11 +31,29 @@ class DailyMatch extends Component {
   //add onclick for next match on decline match button
 
   getOneProfileMatch() {
-    setTimeout(request.get(`/api/members/:${this.state.profile.interesed_tech}/:${this.state.profile.role}`)
+    let roleSelection;
+    if(this.state.profile.role === 'mentor') {
+      roleSelection = 'mentee';
+    } else {
+      roleSelection = 'mentor';
+    }
+
+    setTimeout(request.get(`/api/members?interested_tech=${this.state.profile.interested_tech}&role=${roleSelection}`)
            .then((match) => {
               this.setState({ match: match });
            }), 5000)
   }
+  // handlePostToDb() {
+  //   let matchData = ({
+  //     member_id: this.state.profile.id,
+  //     match_id: this.state.match.id,
+  //   });
+  //   request.post('/api/match')
+  //          .send(matchData)
+  //          .then(() => {
+  //             console.log('successfully posted to matchdb');
+  //          });
+  // }
   render() {
     return (
       <div>
@@ -52,7 +70,7 @@ class DailyMatch extends Component {
           <button>Pass</button>
         </div>
       </div>
-    )
+    );
   }
 }
 

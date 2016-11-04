@@ -6,7 +6,7 @@ class NavBarLoggedOut extends Component {
     return (
       <span className="navBar">
         <li><Link to='/' id="Home">Home</Link></li>
-        <li><Link to='/dashboard' id="Dashboard">Dashboard</Link></li>
+        <li><Link to='/about' id="About">About</Link></li>
         <li><Link to='/register' id="register">Get Started</Link></li>
       </span>
     );

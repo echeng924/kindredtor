@@ -55,27 +55,14 @@ class Auth extends Component {
   render() {
     let memberDisplayElement;
     if(this.state.profile) {
-        // this.props.router.push('/dashboard');
-      memberDisplayElement = (
-        <div>
-          <div>
-            <p>You are logged in.></p>
-            <h3>Current Profile: </h3>
-            <p>{this.state.profile.blurb}</p>
-            <p>You are logged in. {this.state.profile.blurb} <img width="200" src="/auth/picture"/></p>
-          </div>
-        </div>
-      );
+        this.props.router.push('/profile');
+
       } else {
         // this.props.router.push('/register');
         memberDisplayElement = (
           <div>
-
-            <div>
-              <h3>Register or Login </h3>
-              <RegisterForm handleSignUpSubmit={this.signUp}/>
-              <LoginForm handleLoginSubmit={this.logIn} />
-            </div>
+            <RegisterForm handleSignUpSubmit={this.signUp} />
+            <LoginForm handleLoginSubmit={this.logIn} />
           </div>
         );
       }
@@ -96,4 +83,17 @@ export default Auth;
                       <div>
             <NavBarLoggedIn onClick={this.signOut} />
           </div>
+
+
+
+      memberDisplayElement = (
+        <div>
+          <div>
+            <p>You are logged in.</p>
+            <h3>Current Profile: </h3>
+            <p>{this.state.profile.blurb}</p>
+            <p>You are logged in. {this.state.profile.blurb} <img width="200" src="/auth/picture"/></p>
+          </div>
+        </div>
+      );
 */
