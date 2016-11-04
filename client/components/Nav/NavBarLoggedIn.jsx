@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router';
-
-const propTypes = {
-  signOut: React.PropTypes.func,
-};
+import request from 'superagent';
 
 class NavBarLoggedIn extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
+    this.signOut = this.signOut.bind(this);
+  }
+  signOut() {
+    request.post('/auth/signout')
+           .then(() => this.updateAuth());
   }
   render() {
     return (
@@ -15,7 +17,7 @@ class NavBarLoggedIn extends Component {
         <li><Link to='/' id="Home">Home</Link></li>
         <li><Link to='/dashboard' id="Dashboard">Dashboard</Link></li>
         <li><Link to='/matches' id="myMatches">My Matches</Link></li>
-        <li><Link to='/'onClick={this.props.signOut}>Sign Out</Link></li>
+        <li><Link to='/' onClick={this.signOut}>Sign Out</Link></li>
       </span>
     )
   }

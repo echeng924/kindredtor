@@ -59,9 +59,6 @@ class Auth extends Component {
       memberDisplayElement = (
         <div>
           <div>
-            <NavBarLoggedIn onClick={this.signOut} />
-          </div>
-          <div>
             <p>You are logged in.></p>
             <h3>Current Profile: </h3>
             <p>{this.state.profile.blurb}</p>
@@ -73,9 +70,7 @@ class Auth extends Component {
         // this.props.router.push('/register');
         memberDisplayElement = (
           <div>
-            <div>
-              <NavBarLoggedOut />
-            </div>
+
             <div>
               <h3>Register or Login </h3>
               <RegisterForm handleSignUpSubmit={this.signUp}/>
@@ -95,3 +90,10 @@ class Auth extends Component {
 
 export default Auth;
 
+/*            <div>
+              <NavBarLoggedOut />
+            </div>
+                      <div>
+            <NavBarLoggedIn onClick={this.signOut} />
+          </div>
+*/

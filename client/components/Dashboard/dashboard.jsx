@@ -40,16 +40,16 @@ class Dashboard extends Component {
   //take matches from state, map over them, return first name, last name, email, current title, ...and other things
   render() {
     let dashboardElements;
-    if(this.state.profile) {
+    if (this.state.profile) {
       dashboardElements = (
         <div>
           check that dashboard will render
         </div>
       );
     } else {
-      dashboardElements =(
+      dashboardElements = (
         this.props.router.push('/register')
-      )
+      );
     }
     return (
       <div>
