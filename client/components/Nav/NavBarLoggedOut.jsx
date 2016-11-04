@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router';
 class NavBarLoggedOut extends Component {
   render() {
     return (
-      <span>
+      <span className="navBar">
         <li><Link to='/' id="Home">Home</Link></li>
         <li><Link to='/dashboard' id="Dashboard">Dashboard</Link></li>
         <li><Link to='/register' id="register">Get Started</Link></li>

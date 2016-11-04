@@ -1,3 +1,14 @@
 body {
   background-color: mediumseagreen;
 }
+
+.navBar {
+  text-align: right;
+}
+
+.navBar li {
+  display: inline-block;
+  text-decoration: none;
+  padding: 1rem;
+  float: right;
+}

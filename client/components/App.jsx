@@ -43,7 +43,9 @@ class App extends Component {
     }
     return (
       <div>
-        { navElements }
+        <span id='nav'>
+          { navElements }
+        </span>
         From app.
         {this.props.children}
       </div>

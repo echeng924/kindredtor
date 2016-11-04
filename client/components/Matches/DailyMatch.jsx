@@ -11,6 +11,7 @@ class DailyMatch extends Component {
   }
   componentDidMount() {
     this.updateAuth();
+    this.getOneProfileMatch();
   }
   updateAuth() {
     request.get('/auth/profile')
@@ -29,12 +30,12 @@ class DailyMatch extends Component {
   //on componentDidMount load initial match
   //add onclick for next match on decline match button
 
-  // getOneProfileMatch() {
-  //   request.get('/api/members')
-  //          .then((match) => {
-  //             this.setState({ match: match });
-  //          });
-  // }
+  getOneProfileMatch() {
+    setTimeout(request.get(`/api/members/:${this.state.profile.interesed_tech}/:${this.state.profile.role}`)
+           .then((match) => {
+              this.setState({ match: match });
+           }), 5000)
+  }
   render() {
     return (
       <div>
@@ -46,6 +47,9 @@ class DailyMatch extends Component {
           <p>Current Industry</p>
           <p>Tech language</p>
           <p>blurb</p>
+          <button>Match</button>
+          <p>onclick will render email form</p>
+          <button>Pass</button>
         </div>
       </div>
     )
@@ -57,3 +61,4 @@ export default DailyMatch;
 
 //get request to members table, find by parameters
 //in state...do dropdown information show up as null?
+//onclick

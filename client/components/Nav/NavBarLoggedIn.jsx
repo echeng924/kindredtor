@@ -13,7 +13,7 @@ class NavBarLoggedIn extends Component {
   }
   render() {
     return (
-      <span>
+      <span className="navBar">
         <li><Link to='/' id="Home">Home</Link></li>
         <li><Link to='/dashboard' id="Dashboard">Dashboard</Link></li>
         <li><Link to='/matches' id="myMatches">My Matches</Link></li>
