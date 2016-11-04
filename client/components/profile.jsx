@@ -5,7 +5,16 @@ class Profile extends Component {
   constructor() {
     super();
     this.state = {
-      profile: [],
+      profile: {},
+      email: '',
+      password: '',
+      first_name: '',
+      last_name: '',
+      industry: '',
+      interested_tech: '',
+      blurb: '',
+      picture: '',
+      imagePreviewUrl: '',
     };
   }
   componentDidMount() {

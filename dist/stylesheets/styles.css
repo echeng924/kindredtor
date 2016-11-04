@@ -1,9 +1,11 @@
 body {
   background-color: mediumseagreen;
+  font-family: 'Catamaran', sans-serif;
 }
 
 .navBar {
   /*text-align: right;*/
+  /*background-color: yellow;*/
 }
 
 .navBar li {
@@ -13,25 +15,54 @@ body {
   float: right;
 }
 
+li a {
+  text-decoration: none;
+  color:white;
+}
+
+#formContainer {
+  width: 100%;
+}
+
 .registerFormContainer {
-  margin: 3rem;
-  display: inline-block;
+  /*text-align: center;*/
   vertical-align: top;
+  width: 45%;
+  display: inline-block;
 }
 
 .loginFormContainer {
-  margin: 3rem;
-  display: inline-block;
+  /*text-align: center;*/
   vertical-align: top;
+  width: 45%;
+  display: inline-block;
+
 }
 
 input {
   display: block;
   margin: 0.5rem;
-
+  font-size: 0.9rem;
+  padding: 0.4rem;
+  width: 20rem;
+  border: 2px solid green;
+  text-align: center;
 }
 
 select {
   display: block;
   margin: 0.5rem;
+  font-size: 1.3rem;
+  padding: 0.2rem;
+  width: 20.52rem;
+  text-align: center;
+}
+
+textarea {
+  display: block;
+  margin: 0.5rem;
+  font-size: 0.9rem;
+  padding: 0.2rem;
+  width: 20rem;
+  text-align: center;
 }

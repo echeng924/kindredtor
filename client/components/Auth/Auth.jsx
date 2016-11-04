@@ -60,7 +60,7 @@ class Auth extends Component {
       } else {
         // this.props.router.push('/register');
         memberDisplayElement = (
-          <div>
+          <div id="formContainer">
             <RegisterForm handleSignUpSubmit={this.signUp} />
             <LoginForm handleLoginSubmit={this.logIn} />
           </div>
