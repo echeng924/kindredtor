@@ -40,6 +40,18 @@ class Profile extends Component {
     updated[name] = value;
     this.setState(updated);
   }
+  handleImageChange(e) {
+    e.preventDefault();
+
+    let reader = new FileReader();
+    let picture = e.target.files[0];
+    reader.onload = (upload) => {
+    this.setState({
+      picture: upload.target.result,
+      });
+    };
+    reader.readAsDataURL(picture);
+  }
   handleSubmit(e) {
     e.preventDefault();
     this.handleUpdatePost(this.state.profile);
@@ -52,6 +64,7 @@ class Profile extends Component {
            });
   }
   render() {
+    if (this.state.profile) {
     return (
       <div id="profile">
         <p><img width="200" src="/auth/picture"/></p>
@@ -84,6 +97,7 @@ class Profile extends Component {
               <option value="Education">Education</option>
               <option value="Energy">Energy</option>
               <option value="Film/Media">Film/Media</option>
+              <option value="Finance">Film/Media</option>
               <option value="Fintech">Fintech</option>
               <option value="Food">Food</option>
               <option value="Medical">Medical</option>
@@ -115,12 +129,20 @@ class Profile extends Component {
               value={this.state.profile.blurb}
               onChange={this.handleInputChange}
             />
+            <input
+              name="photo"
+              type="file"
+              onChange={this.handleImageChange}
+            />
             <input type="submit" value="Update Profle" />
           </form>
           <button>Go to matches</button>
         </div>
       </div>
     );
+    } else {
+      return <div/>;
+    }
   }
 }
 

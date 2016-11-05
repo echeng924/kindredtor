@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router';
 import request from 'superagent';
 
+const propTypes = {
+  updateAuth: React.PropTypes.func,
+};
+
 class NavBarLoggedIn extends Component {
   constructor() {
     super();
@@ -9,7 +13,10 @@ class NavBarLoggedIn extends Component {
   }
   signOut() {
     request.post('/auth/signout')
-           .then(() => this.updateAuth());
+           .then(() => {
+            this.updateAuth();
+
+            });
   }
   render() {
     return (

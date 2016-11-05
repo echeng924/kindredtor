@@ -25,7 +25,7 @@ class DailyMatch extends Component {
             });
            });
   }
-  //how do I pass in parameters of interested tech and role
+  //how do I pass in parameters of interested tech and role using query params
   //write a conditional to check what the role is...if profile.role === mentor pass in mentee as parameter
   //on componentDidMount load initial match
   //add onclick for next match on decline match button
@@ -67,7 +67,7 @@ class DailyMatch extends Component {
           <p>blurb</p>
           <button>Match</button>
           <p>onclick will render email form</p>
-          <button>Pass</button>
+          <button onClick = {this.handlePostToDb}>Pass</button>
         </div>
       </div>
     );

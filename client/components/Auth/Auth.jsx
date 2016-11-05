@@ -18,6 +18,8 @@ class Auth extends Component {
   }
   componentDidMount() {
     this.updateAuth();
+    if(this.state.profile)
+      this.props.router.push('/profile');
   }
   signOut() {
     request.post('/auth/signout')
@@ -42,7 +44,7 @@ class Auth extends Component {
     request.post('/auth/login')
            .send(memberDetails)
            .then(() => {
-              this.updateAuth();
+              this.props.router.push('/profile');
            })
   }
   signUp(memberDetails) {
@@ -54,10 +56,7 @@ class Auth extends Component {
   }
   render() {
     let memberDisplayElement;
-    if(this.state.profile) {
-        this.props.router.push('/profile');
-
-      } else {
+    if(!this.state.profile) {
         // this.props.router.push('/register');
         memberDisplayElement = (
           <div id="formContainer">

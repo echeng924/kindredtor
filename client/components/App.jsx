@@ -10,6 +10,7 @@ class App extends Component {
     this.state = {
       profile: [],
     };
+    this.updateAuth = this.updateAuth.bind(this);
   }
   componentDidMount() {
     this.updateAuth();
@@ -31,7 +32,7 @@ class App extends Component {
     if(this.state.profile) {
       navElements = (
         <div>
-          <NavBarLoggedIn />
+          <NavBarLoggedIn updateAuth={this.updateAuth} />
         </div>
       );
     } else {

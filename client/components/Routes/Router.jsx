@@ -12,10 +12,10 @@ const Routes = () => {
     <Router history={hashHistory}>
       <Route path='/' component={App} >
         <IndexRoute component={Initial} />
-      <Route path='register' component={Auth} />
-      <Route path='dashboard' component={Dashboard} />
-      <Route path='matches' component={DailyMatch} />
-      <Route path='profile' component={Profile} />
+        <Route path='register' component={Auth} />
+        <Route path='dashboard' component={Dashboard} />
+        <Route path='matches' component={DailyMatch} />
+        <Route path='profile' component={Profile} />
       </Route>
     </Router>
   );
