@@ -7,6 +7,7 @@ class MemberDAO {
     return db.map(sql.all, [], row => new Member(row));
   }
   static findBy({ interested_tech, role }) {
+    console.log(interested_tech, role);
     return db.one(sql.find, [interested_tech, role], row => new Member(row));
   }
   static findByEmail({ email }) {
@@ -21,10 +22,11 @@ class MemberDAO {
   }
   static update({ first_name, last_name, current_title, role, current_industry, interested_tech, blurb, picture, id }) {
     console.log(id);
+    console.log("has picture");
     return db.none(sql.update, [first_name, last_name, current_title, role, current_industry, interested_tech, blurb, picture, id]);
   }
   static updateNoPicture({ first_name, last_name, current_title, role, current_industry, interested_tech, blurb, id }) {
-    console.log(id);
+    console.log(first_name, last_name, current_title, role, current_industry, interested_tech, blurb, id);
     console.log("no picture");
     return db.none(sql.updateNoPicture, [first_name, last_name, current_title, role, current_industry, interested_tech, blurb, id]);
   }

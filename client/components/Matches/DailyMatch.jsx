@@ -8,40 +8,31 @@ class DailyMatch extends Component {
       profile: {},
       match: {},
     };
+
+    this.profileUpdated = this.profileUpdated.bind(this);
   }
   componentDidMount() {
-    this.updateAuth();
+    if (this.props.profile && this.props.profile.role)
+      this.profileUpdated();
+  }
+  profileUpdated() {
     this.getOneProfileMatch();
   }
-  updateAuth() {
-    request.get('/auth/profile')
-           .then((resp) => {
-            this.setState({
-              profile: resp.body,
-            });
-           }).catch(() => {
-            this.setState({
-              profile: null,
-            });
-           });
-  }
-  //how do I pass in parameters of interested tech and role using query params
-  //write a conditional to check what the role is...if profile.role === mentor pass in mentee as parameter
-  //on componentDidMount load initial match
+
   //add onclick for next match on decline match button
 
   getOneProfileMatch() {
     let roleSelection;
-    if(this.state.profile.role === 'mentor') {
-      roleSelection = 'mentee';
+    if(this.props.profile.role === 'Mentor') {
+      roleSelection = 'Mentee';
     } else {
-      roleSelection = 'mentor';
+      roleSelection = 'Mentor';
     }
 
-    setTimeout(request.get(`/api/members?interested_tech=${this.state.profile.interested_tech}&role=${roleSelection}`)
+    request.get(`/api/members?interested_tech=${this.props.profile.interested_tech}&role=${roleSelection}`)
            .then((match) => {
-              this.setState({ match: match });
-           }), 5000)
+              this.setState({ match: match.body });
+           })
   }
   // handlePostToDb() {
   //   let matchData = ({
@@ -59,14 +50,13 @@ class DailyMatch extends Component {
       <div>
         Will show matches...what should be returned:
         <div id="matchProfile">
-          <p>Image</p>
-          <p>First Name</p>
-          <p>Current Title</p>
-          <p>Current Industry</p>
-          <p>Tech language</p>
-          <p>blurb</p>
+          <p><img width="200" src="/auth/picture"/></p>
+          <p>First Name: {this.state.match.first_name}</p>
+          <p>Current Title: {this.state.match.current_title}</p>
+          <p>Current Industry: {this.state.match.current_industry}</p>
+          <p>Tech language: {this.state.match.interested_tech}</p>
+          <p>About them: {this.state.match.blurb}</p>
           <button>Match</button>
-          <p>onclick will render email form</p>
           <button onClick = {this.handlePostToDb}>Pass</button>
         </div>
       </div>
@@ -76,7 +66,3 @@ class DailyMatch extends Component {
 
 export default DailyMatch;
 
-
-//get request to members table, find by parameters
-//in state...do dropdown information show up as null?
-//onclick

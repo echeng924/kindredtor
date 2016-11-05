@@ -4,13 +4,20 @@ class MembersController {
   static getAllMembers(req, res) {
     MemberDAO.all().then((members) => {
       res.status(200).json(members);
-    });
+    }).catch( (error) => {
+              console.log(error);
+              res.status(500).json(error);
+             });
   }
   static getOneMember(req, res) {
     console.log(req.query.interested_tech, req.query.role);
-    MemberDAO.findBy(req.query.interested_tech, req.query.role)
+    MemberDAO.findBy({ interested_tech: req.query.interested_tech, role: req.query.role })
              .then((member) => {
+                console.log(member);
                 res.status(200).json(member);
+             }).catch( (error) => {
+              console.log(error);
+              res.status(500).json(error);
              });
   }
   static create(req, res) {
@@ -27,7 +34,10 @@ class MembersController {
       picture: req.body.picture,
     };
     MemberDAO.create(memberData)
-             .then((member) => res.status(200).json(member));
+             .then((member) => res.status(200).json(member)).catch( (error) => {
+              console.log(error);
+              res.status(500).json(error);
+             });
   }
   static update(req, res) {
     const updateData = {
@@ -41,18 +51,38 @@ class MembersController {
       picture: req.body.picture,
       id: req.body.id,
     };
-    console.log(updateData);
-    if (req.body.picture === null) {
+    //console.log(updateData);
+    const email = req.session.currentMember.email;
+    if (!req.body.picture) {
       MemberDAO.updateNoPicture(updateData)
-               .then(() => res.status(204).end());
+               .then(() => {
+                req.session.currentMember = updateData;
+                req.session.currentMember.email = email;
+                res.status(204).end();
+              }).catch( (error) => {
+              console.log(error);
+              res.status(500).json(error);
+             });
     } else {
+      updateData.picture = new Buffer(updateData.picture.replace(/^data:image\/\w+;base64,/, ""), 'base64');
       MemberDAO.update(updateData)
-               .then(() => res.status(204).end());
+               .then(() => {
+                updateData.picture = null;
+                req.session.currentMember = updateData;
+                req.session.currentMember.email = email;
+                res.status(204).end();
+              }).catch( (error) => {
+              console.log(error);
+              res.status(500).json(error);
+             });
     }
   }
   static delete(req, res) {
     MemberDAO.delete(req.params.id)
-             .then(() => res.status(204).end());
+             .then(() => res.status(204).end()).catch( (error) => {
+              console.log(error);
+              res.status(500).json(error);
+             });
   }
 }
 

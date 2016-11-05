@@ -42,9 +42,11 @@ class Profile extends Component {
     let reader = new FileReader();
     let picture = e.target.files[0];
     reader.onload = (upload) => {
-    this.setState({
-      picture: upload.target.result,
-      });
+      const state = {
+        profile: this.state.profile,
+      };
+      state.profile.picture = upload.target.result;
+    this.setState(state);
     };
     reader.readAsDataURL(picture);
   }
@@ -95,7 +97,7 @@ class Profile extends Component {
               <option value="Education">Education</option>
               <option value="Energy">Energy</option>
               <option value="Film/Media">Film/Media</option>
-              <option value="Finance">Film/Media</option>
+              <option value="Finance">Finance</option>
               <option value="Fintech">Fintech</option>
               <option value="Food">Food</option>
               <option value="Medical">Medical</option>

@@ -21,10 +21,16 @@ class App extends Component {
             this.setState({
               profile: resp.body,
             });
+            if (this.refs[0].profileUpdated) {
+              this.refs[0].profileUpdated();
+            }
            }).catch(() => {
             this.setState({
               profile: null,
             });
+            if (this.refs[0].profileUpdated) {
+              this.refs[0].profileUpdated();
+            }
            });
   }
   render() {
@@ -44,8 +50,9 @@ class App extends Component {
     }
     let parent = this;
     // pass props to this.props.children
-    const children = React.Children.map(this.props.children, function (child) {
+    this.children = React.Children.map(this.props.children, (child, idx) => {
       return React.cloneElement(child, {
+        ref: idx,
         profile: parent.state.profile,
         updateAuth: parent.updateAuth,
       });
@@ -56,7 +63,7 @@ class App extends Component {
           { navElements }
         </div>
         <div>
-          {children}
+          {this.children}
         </div>
       </div>
     );
