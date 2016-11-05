@@ -20,6 +20,7 @@ const sqlProvider = {
     find: sql('/sql/member/find.sql'),
     findEmail: sql('/sql/member/findEmail.sql'),
     update: sql('/sql/member/update.sql'),
+    updateNoPicture: sql('/sql/member/updateNoPicture.sql'),
   },
 };
 

@@ -32,7 +32,7 @@ class App extends Component {
     if(this.state.profile) {
       navElements = (
         <div>
-          <NavBarLoggedIn updateAuth={this.updateAuth} />
+          <NavBarLoggedIn updateAuth={this.updateAuth} router={this.props.router} />
         </div>
       );
     } else {
@@ -42,13 +42,21 @@ class App extends Component {
         </div>
       );
     }
+    let parent = this;
+    // pass props to this.props.children
+    const children = React.Children.map(this.props.children, function (child) {
+      return React.cloneElement(child, {
+        profile: parent.state.profile,
+        updateAuth: parent.updateAuth,
+      });
+    });
     return (
       <div>
         <div id="nav">
-            { navElements }
+          { navElements }
         </div>
         <div>
-          {this.props.children}
+          {children}
         </div>
       </div>
     );
@@ -58,4 +66,4 @@ class App extends Component {
 export default App;
 
 
-//add updateAuth within here, but maybe change to check for token session?
+// add updateAuth within here, but maybe change to check for token session?

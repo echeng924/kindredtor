@@ -1,5 +1,6 @@
 class Member {
-  constructor({ email, password, first_name, last_name, current_title, role, current_industry, interested_in, blurb, picture }) {
+  constructor({ id, email, password, first_name, last_name, current_title, role, current_industry, interested_in, blurb, picture }) {
+    this.id = id;
     this.email = email;
     this.password = password;
     this.first_name = first_name;

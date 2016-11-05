@@ -6,16 +6,10 @@ class Profile extends Component {
     super();
     this.state = {
       profile: {},
-      email: '',
-      password: '',
-      first_name: '',
-      last_name: '',
-      industry: '',
-      interested_tech: '',
-      blurb: '',
-      picture: '',
-      imagePreviewUrl: '',
     };
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleImageChange = this.handleImageChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
     this.updateAuth();
@@ -36,9 +30,11 @@ class Profile extends Component {
     const target = e.target;
     const name = target.getAttribute('name');
     const value = target.value;
-    const updated = {};
-    updated[name] = value;
-    this.setState(updated);
+    const state = {
+      profile: this.state.profile,
+    };
+    state.profile[name] = value;
+    this.setState(state);
   }
   handleImageChange(e) {
     e.preventDefault();
@@ -57,10 +53,12 @@ class Profile extends Component {
     this.handleUpdatePost(this.state.profile);
   }
   handleUpdatePost(updateData) {
-    request.put(`/members/:${this.state.profile.id}`)
+    request.put(`/api/members/${this.state.profile.id}`)
            .send(updateData)
            .then(() => {
               console.log('update success');
+              console.log(updateData);
+              this.updateAuth();
            });
   }
   render() {
@@ -91,8 +89,8 @@ class Profile extends Component {
               value={this.state.profile.current_title}
               onChange={this.handleInputChange}
             />
-            <select name="industry" value={this.state.profile.industry} onChange={this.handleInputChange}>
-              <option value="" disabled selected>Current Industry:</option>
+            <select name="industry" value={this.state.profile.current_industry} onChange={this.handleInputChange}>
+              <option value="" disabled>Current Industry:</option>
               <option value="Biotechnology">Biotechnology</option>
               <option value="Education">Education</option>
               <option value="Energy">Energy</option>
@@ -107,12 +105,12 @@ class Profile extends Component {
               <option value="Travel">Travel</option>
             </select>
             <select name="role" value={this.state.profile.role} onChange={this.handleInputChange}>
-              <option value="" disabled selected>Interested in being a:</option>
+              <option value="" disabled>Interested in being a:</option>
               <option value="Mentor">Mentor</option>
               <option value="Mentee">Mentee</option>
             </select>
             <select name="interested_tech" value={this.state.profile.interested_tech} onChange={this.handleInputChange}>
-              <option value="" disabled selected>What is your primary technology:</option>
+              <option value="" disabled>What is your primary technology:</option>
               <option value="SQL">SQL</option>
               <option value="Java">Java</option>
               <option value="JavaScript">JavaScript</option>

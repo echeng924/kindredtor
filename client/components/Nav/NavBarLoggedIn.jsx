@@ -14,8 +14,8 @@ class NavBarLoggedIn extends Component {
   signOut() {
     request.post('/auth/signout')
            .then(() => {
-            this.updateAuth();
-
+              this.props.updateAuth();
+              this.props.router.push('/');
             });
   }
   render() {

@@ -19,8 +19,14 @@ class MemberDAO {
   static delete(id) {
     return db.none(sql.delete, [id]);
   }
-  static update({ first_name, last_name, current_title, role, current_industry, interested_tech, blurb }) {
-    return db.none(sql.update, [first_name, last_name, current_title, role, current_industry, interested_tech, blurb]);
+  static update({ first_name, last_name, current_title, role, current_industry, interested_tech, blurb, picture, id }) {
+    console.log(id);
+    return db.none(sql.update, [first_name, last_name, current_title, role, current_industry, interested_tech, blurb, picture, id]);
+  }
+  static updateNoPicture({ first_name, last_name, current_title, role, current_industry, interested_tech, blurb, id }) {
+    console.log(id);
+    console.log("no picture");
+    return db.none(sql.updateNoPicture, [first_name, last_name, current_title, role, current_industry, interested_tech, blurb, id]);
   }
 }
 
