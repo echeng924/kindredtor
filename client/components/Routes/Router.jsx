@@ -5,6 +5,7 @@ import Auth from '../Auth/Auth.jsx';
 import Initial from '../Home/Initial.jsx';
 import Dashboard from '../Dashboard/dashboard.jsx';
 import DailyMatch from '../Matches/DailyMatch.jsx';
+import Messages from '../Messages/Messages.jsx';
 import Profile from '../profile.jsx';
 
 const Routes = () => {
@@ -15,6 +16,7 @@ const Routes = () => {
         <Route path='register' component={Auth} />
         <Route path='dashboard' component={Dashboard} />
         <Route path='matches' component={DailyMatch} />
+        <Route path='messages' component={Messages} />
         <Route path='profile' component={Profile} />
       </Route>
     </Router>

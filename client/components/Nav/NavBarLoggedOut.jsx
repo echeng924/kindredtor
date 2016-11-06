@@ -35,6 +35,7 @@ class NavBarLoggedOut extends Component {
             <li><Link to='/' id="Home" className={this.props.path=='/'?'active':''}>Home</Link></li>
             <li><Link to='/dashboard' id="Dashboard" className={this.props.path=='/dashboard'?'active':''}>Dashboard</Link></li>
             <li><Link to='/matches' id="myMatches" className={this.props.path=='/matches'?'active':''}>My Matches</Link></li>
+            <li><Link to='/messages' id="messages" className={this.props.path=='/messages'?'active':''}>My Messages</Link></li>
             <li><Link to='/profile' id="profile" className={this.props.path=='/profile'?'active':''}>My Profile</Link></li>
             <li><Link to='/' onClick={this.signOut}>Sign Out</Link></li>
           </div>

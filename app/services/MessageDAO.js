@@ -10,6 +10,9 @@ class MessageDAO {
   static getGroupsByUser({ id }) {
     return db.map(sql.getGroupsByUser, [id], row => new Group(row));
   }
+  static createMessage({ group_id, sender_id, text }) {
+    return db.one(sql.createMessage, [group_id, sender_id, text], row => new Message(row));
+  }
 }
 
 module.exports = MessageDAO;

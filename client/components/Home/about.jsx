@@ -4,7 +4,12 @@ class About extends Component {
   render() {
     return (
       <div>
-        About page
+        <div>
+          Image
+        </div>
+        <div className="aboutPage">
+          We are a New York City based organization looking to.
+        </div>
       </div>
     );
   }
