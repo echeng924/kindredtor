@@ -1,71 +1,123 @@
 body {
-  background-color: mediumseagreen;
+  background-color: whitesmoke;
   font-family: 'Catamaran', sans-serif;
+  font-family: 'Libre Baskerville', serif;
+  margin: 0;
+}
+
+div {
+  box-sizing: border-box;
+}
+input {
+  font-family: 'Libre Baskerville', serif;
+}
+input[type="button"], input[type="submit"], .button {
+  background: rgba(41,121,255,1);
+  border: 0;
+  color: white;
+  padding: 10px 30px;
+  font-size: 14px;
+  text-shadow: none;
+  text-decoration: none;
 }
 
 .navBar {
   /*text-align: right;*/
-  /*background-color: yellow;*/
+  background-color: white;
+  width: 100%;
+  padding: 20px 30px;
+  display: flex;
 }
-
+.navBar .navLeft {
+  flex: 1;
+}
+.navBar .navRight {
+  text-align: right;
+}
 .navBar li {
   display: inline-block;
   text-decoration: none;
-  padding: 1rem;
-  float: right;
+  padding-left: 1.5rem;
 }
-
-li a {
+.navBar li a {
   text-decoration: none;
-  color:white;
+  color:black;
+}
+.navBar li:first-child a {
+  color:blue;
 }
 
-#formContainer {
+.homeSplash {
+  background-size: auto 100%;
+  background-position: center top;
+  background-image: url("nyc.jpeg");
+  height: 700px;
+  display: flex;
+  align-items: center;
+}
+.homeSplash .content {
+  color: white;
+  margin-left: 23%;
+  font-size:40px;
+  text-shadow: 0 0 10px black;
+}
+.homeSplash .content input {
+  margin-top: 10px;
+}
+.homeSplash .content .time {
+  font-size:16px;
+  margin-bottom: 15px;
+}
+
+.authPage {
+  background-image: url('login.jpeg');
+  background-size: cover;
+  padding: 40px;
+  margin: 25px;
+  box-shadow: 0 0 20px rgba(0,0,0,.15);
+  display: flex;
+}
+.authPage input[type="text"],
+.authPage input[type="password"],
+.authPage input[type="file"],
+.authPage select,
+.authPage textarea {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  border-bottom: 1px solid rgba(0,0,0,.25);
+  margin-bottom: 20px;
+  padding: 5px 0;
+  font-size: 16px;
+  width: 100%;
+}
+.registerForm textarea {
+  background: white;
+  border: 1px solid rgba(0,0,0,.25);
+  padding: 5px;
+  min-height: 100px;
+}
+.registerForm {
+  flex: 1;
+  margin-right: 2%;
+  background: rgba(255,255,255,.9);
+  padding: 20px 40px 40px;
+}
+.loginForm {
+  flex: 1;
+  margin-left: 2%;
+}
+.loginForm .wrapper {
+  vertical-align: top;
+  display: inline-block;
+  background: rgba(255,255,255,.9);
+  padding: 20px 40px 40px;
   width: 100%;
 }
 
-.registerFormContainer {
-  /*text-align: center;*/
-  vertical-align: top;
-  width: 45%;
-  display: inline-block;
-}
 
-.loginFormContainer {
-  /*text-align: center;*/
-  vertical-align: top;
-  width: 45%;
-  display: inline-block;
-
-}
-
-input {
-  display: block;
-  margin: 0.5rem;
-  font-size: 0.9rem;
-  padding: 0.4rem;
-  width: 20rem;
-  border: 2px solid green;
-  text-align: center;
-}
-
-select {
-  display: block;
-  margin: 0.5rem;
-  font-size: 1.3rem;
-  padding: 0.2rem;
-  width: 20.52rem;
-  text-align: center;
-}
-
-textarea {
-  display: block;
-  margin: 0.5rem;
-  font-size: 0.9rem;
-  padding: 0.2rem;
-  width: 20rem;
-  text-align: center;
-}
 
 #matchProfile {
   border: 1px solid black;

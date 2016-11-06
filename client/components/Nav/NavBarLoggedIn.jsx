@@ -20,13 +20,13 @@ class NavBarLoggedIn extends Component {
   }
   render() {
     return (
-      <span className="navBar">
+      <div className="navBar">
         <li><Link to='/' id="Home">Home</Link></li>
         <li><Link to='/dashboard' id="Dashboard">Dashboard</Link></li>
         <li><Link to='/matches' id="myMatches">My Matches</Link></li>
         <li><Link to='/profile' id="profile">My Profile</Link></li>
         <li><Link to='/' onClick={this.signOut}>Sign Out</Link></li>
-      </span>
+      </div>
     )
   }
 }

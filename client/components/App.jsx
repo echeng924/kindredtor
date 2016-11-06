@@ -8,7 +8,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      profile: [],
+      profile: null,
     };
     this.updateAuth = this.updateAuth.bind(this);
   }
@@ -34,20 +34,6 @@ class App extends Component {
            });
   }
   render() {
-    let navElements;
-    if(this.state.profile) {
-      navElements = (
-        <div>
-          <NavBarLoggedIn updateAuth={this.updateAuth} router={this.props.router} />
-        </div>
-      );
-    } else {
-      navElements = (
-        <div>
-          <NavBarLoggedOut />
-        </div>
-      );
-    }
     let parent = this;
     // pass props to this.props.children
     this.children = React.Children.map(this.props.children, (child, idx) => {
@@ -60,7 +46,7 @@ class App extends Component {
     return (
       <div>
         <div id="nav">
-          { navElements }
+          <NavBarLoggedOut profile={this.state.profile} updateAuth={this.updateAuth} router={this.props.router} path={this.props.location.pathname} />
         </div>
         <div>
           {this.children}

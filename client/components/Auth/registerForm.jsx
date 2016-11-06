@@ -54,46 +54,46 @@ class RegisterForm extends Component {
 
   render() {
     return (
-      <div className="registerFormContainer">
+      <div className="registerForm">
        <h2>Register</h2>
-        <form id="registerForm" onSubmit={this.handleSubmit}>
-          <input
+        <form onSubmit={this.handleSubmit}>
+          <div><input
             type="text"
             name="email"
             placeholder="Email"
             value={this.state.email}
             onChange={this.handleInputChange}
-          />
-          <input
+          /></div>
+          <div><input
             type="password"
             name="password"
             id="password"
             placeholder="Password"
             value={this.state.password}
             onChange={this.handleInputChange}
-          />
-          <input
+          /></div>
+          <div><input
             type="text"
             name="first_name"
             placeholder="First Name"
             value={this.state.first_name}
             onChange={this.handleInputChange}
-          />
-          <input
+          /></div>
+          <div><input
             type="text"
             name="last_name"
             placeholder="Last Name"
             value={this.state.last_name}
             onChange={this.handleInputChange}
-          />
-          <input
+          /></div>
+          <div><input
             type="text"
             name="current_title"
             placeholder="Current Title"
             value={this.state.current_title}
             onChange={this.handleInputChange}
-          />
-          <select name="industry" value={this.state.current_industry} onChange={this.handleInputChange}>
+          /></div>
+          <div><select name="industry" value={this.state.current_industry} onChange={this.handleInputChange}>
             <option value="" disabled>Current Industry:</option>
             <option value="Biotechnology">Biotechnology</option>
             <option value="Education">Education</option>
@@ -107,13 +107,13 @@ class RegisterForm extends Component {
             <option value="Music">Music</option>
             <option value="Sports">Sports</option>
             <option value="Travel">Travel</option>
-          </select>
-          <select name="role" value={this.state.role} onChange={this.handleInputChange}>
+          </select></div>
+          <div><select name="role" value={this.state.role} onChange={this.handleInputChange}>
             <option value="" disabled>Interested in being a:</option>
             <option value="Mentor">Mentor</option>
             <option value="Mentee">Mentee</option>
-          </select>
-          <select name="interested_tech" value={this.state.interested_tech} onChange={this.handleInputChange}>
+          </select></div>
+          <div><select name="interested_tech" value={this.state.interested_tech} onChange={this.handleInputChange}>
             <option value="" disabled>What is your primary technology:</option>
             <option value="SQL">SQL</option>
             <option value="Java">Java</option>
@@ -124,19 +124,19 @@ class RegisterForm extends Component {
             <option value="PHP">PHP</option>
             <option value="ios">ios</option>
             <option value="Ruby/Rails">Ruby/Rails</option>
-          </select>
-          <textarea
+          </select></div>
+          <div><textarea
             name="blurb"
             placeholder="Tell us about you..."
             value={this.state.blurb}
             onChange={this.handleInputChange}
-          />
-          <input
+          /></div>
+          <div><input
             name="photo"
             type="file"
             onChange={this.handleImageChange}
-          />
-          <input type="submit" value="Register" />
+          /></div>
+          <div><input type="submit" value="Register" /></div>
         </form>
       </div>
     );

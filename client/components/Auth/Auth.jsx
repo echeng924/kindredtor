@@ -37,7 +37,7 @@ class Auth extends Component {
     let memberDisplayElement;
     if (!this.state.profile) {
       memberDisplayElement = (
-        <div id="formContainer">
+        <div className="authPage">
           <RegisterForm handleSignUpSubmit={this.signUp} />
           <LoginForm handleLoginSubmit={this.logIn} />
         </div>

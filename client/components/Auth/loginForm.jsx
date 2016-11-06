@@ -31,28 +31,30 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <div className="loginFormContainer">
+      <div className="loginForm">
+      <div className="wrapper">
         <h2>Log In </h2>
-        <form id="loginForm" onSubmit={this.handleSubmit}>
-          <input
+        <form onSubmit={this.handleSubmit}>
+          <div><input
             type="text"
             value={this.state.email}
             name="email"
             placeholder="Enter Your Email"
             onChange={this.handleInputChange}
-          />
-          <input
+          /></div>
+          <div><input
             type="password"
             value={this.state.password}
             name="password"
             placeholder="Enter Your Password"
             onChange={this.handleInputChange}
-          />
-          <input
+          /></div>
+          <div><input
             type="submit"
             value="Log In"
-          />
+          /></div>
         </form>
+      </div>
       </div>
     );
   }
