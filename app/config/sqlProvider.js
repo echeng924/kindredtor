@@ -19,6 +19,7 @@ const sqlProvider = {
     delete: sql('/sql/member/delete.sql'),
     find: sql('/sql/member/find.sql'),
     findEmail: sql('/sql/member/findEmail.sql'),
+    findId: sql('/sql/member/findById.sql'),
     findByMatch: sql('/sql/member/findByMatch.sql'),
     update: sql('/sql/member/update.sql'),
     updateNoPicture: sql('/sql/member/updateNoPicture.sql'),

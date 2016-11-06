@@ -21,9 +21,9 @@ class NavBarLoggedOut extends Component {
         <div className="navBar">
           <div className="navLeft">kindredtor</div>
           <div className="navRight">
-            <li><Link to='/' id="Home">Home</Link></li>
-            <li><Link to='/about' id="About">About</Link></li>
-            <li><Link to='/register' id="register">Get Started</Link></li>
+            <li><Link to='/' id="Home" className={this.props.path=='/'?'active':''}>Home</Link></li>
+            <li><Link to='/about' id="About" className={this.props.path=='/about'?'active':''}>About</Link></li>
+            <li><Link to='/register' id="register" className={this.props.path=='/register'?'active':''}>Get Started</Link></li>
           </div>
         </div>
       );
@@ -32,10 +32,10 @@ class NavBarLoggedOut extends Component {
         <div className="navBar">
           <div className="navLeft">kindredtor</div>
           <div className="navRight">
-            <li><Link to='/' id="Home">Home</Link></li>
-            <li><Link to='/dashboard' id="Dashboard">Dashboard</Link></li>
-            <li><Link to='/matches' id="myMatches">My Matches</Link></li>
-            <li><Link to='/profile' id="profile">My Profile</Link></li>
+            <li><Link to='/' id="Home" className={this.props.path=='/'?'active':''}>Home</Link></li>
+            <li><Link to='/dashboard' id="Dashboard" className={this.props.path=='/dashboard'?'active':''}>Dashboard</Link></li>
+            <li><Link to='/matches' id="myMatches" className={this.props.path=='/matches'?'active':''}>My Matches</Link></li>
+            <li><Link to='/profile' id="profile" className={this.props.path=='/profile'?'active':''}>My Profile</Link></li>
             <li><Link to='/' onClick={this.signOut}>Sign Out</Link></li>
           </div>
         </div>

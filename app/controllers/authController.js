@@ -61,17 +61,6 @@ class AuthController {
     res.status(200).json(req.session.currentMember);
   }
 
-  static picture(req, res) {
-    let email = req.session.currentMember.email;
-    MemberDAO.findByEmail({ email })
-             .then((member) => {
-                  res.status(200).send(member.picture);
-             })
-             .catch((err) => {
-                console.error(err);
-                res.status(401).end();
-             });
-  }
 }
 
 module.exports = AuthController;

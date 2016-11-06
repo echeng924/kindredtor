@@ -66,77 +66,79 @@ class Profile extends Component {
   render() {
     if (this.state.profile) {
     return (
-      <div id="profile">
-        <p><img width="200" src="/auth/picture"/></p>
-        <div className="registerForm">
-          <form onSubmit={this.handleSubmit}>
-            <input
-              type="text"
-              name="first_name"
-              placeholder="First Name"
-              value={this.state.profile.first_name}
-              onChange={this.handleInputChange}
-            />
-            <input
-              type="text"
-              name="last_name"
-              placeholder="Last Name"
-              value={this.state.profile.last_name}
-              onChange={this.handleInputChange}
-            />
-            <input
-              type="text"
-              name="current_title"
-              placeholder="Current Title"
-              value={this.state.profile.current_title}
-              onChange={this.handleInputChange}
-            />
-            <select name="industry" value={this.state.profile.current_industry} onChange={this.handleInputChange}>
-              <option value="" disabled>Current Industry:</option>
-              <option value="Biotechnology">Biotechnology</option>
-              <option value="Education">Education</option>
-              <option value="Energy">Energy</option>
-              <option value="Film/Media">Film/Media</option>
-              <option value="Finance">Finance</option>
-              <option value="Fintech">Fintech</option>
-              <option value="Food">Food</option>
-              <option value="Medical">Medical</option>
-              <option value="Military">Military</option>
-              <option value="Music">Music</option>
-              <option value="Sports">Sports</option>
-              <option value="Travel">Travel</option>
-            </select>
-            <select name="role" value={this.state.profile.role} onChange={this.handleInputChange}>
-              <option value="" disabled>Interested in being a:</option>
-              <option value="Mentor">Mentor</option>
-              <option value="Mentee">Mentee</option>
-            </select>
-            <select name="interested_tech" value={this.state.profile.interested_tech} onChange={this.handleInputChange}>
-              <option value="" disabled>What is your primary technology:</option>
-              <option value="SQL">SQL</option>
-              <option value="Java">Java</option>
-              <option value="JavaScript">JavaScript</option>
-              <option value="C#">C#</option>
-              <option value="Python">Python</option>
-              <option value="C++">C++</option>
-              <option value="PHP">PHP</option>
-              <option value="ios">ios</option>
-              <option value="Ruby/Rails">Ruby/Rails</option>
-            </select>
-            <textarea
-              name="blurb"
-              placeholder="Tell us about you..."
-              value={this.state.profile.blurb}
-              onChange={this.handleInputChange}
-            />
-            <input
-              name="photo"
-              type="file"
-              onChange={this.handleImageChange}
-            />
-            <input type="submit" value="Update Profile" />
-          </form>
-          <button>Go to matches</button>
+      <div className="profilePage">
+        <div className="container">
+          <h1>Profile </h1>
+          <div className="content">
+            <div className="image"><img src={`/api/members/${this.state.profile.id}/picture`}/></div>
+            <form onSubmit={this.handleSubmit}>
+              <div><input
+                type="text"
+                name="first_name"
+                placeholder="First Name"
+                value={this.state.profile.first_name}
+                onChange={this.handleInputChange}
+              /></div>
+              <div><input
+                type="text"
+                name="last_name"
+                placeholder="Last Name"
+                value={this.state.profile.last_name}
+                onChange={this.handleInputChange}
+              /></div>
+              <div><input
+                type="text"
+                name="current_title"
+                placeholder="Current Title"
+                value={this.state.profile.current_title}
+                onChange={this.handleInputChange}
+              /></div>
+              <div><select name="industry" value={this.state.profile.current_industry} onChange={this.handleInputChange}>
+                <option value="" disabled>Current Industry:</option>
+                <option value="Biotechnology">Biotechnology</option>
+                <option value="Education">Education</option>
+                <option value="Energy">Energy</option>
+                <option value="Film/Media">Film/Media</option>
+                <option value="Finance">Finance</option>
+                <option value="Fintech">Fintech</option>
+                <option value="Food">Food</option>
+                <option value="Medical">Medical</option>
+                <option value="Military">Military</option>
+                <option value="Music">Music</option>
+                <option value="Sports">Sports</option>
+                <option value="Travel">Travel</option>
+              </select></div>
+              <div><select name="role" value={this.state.profile.role} onChange={this.handleInputChange}>
+                <option value="" disabled>Interested in being a:</option>
+                <option value="Mentor">Mentor</option>
+                <option value="Mentee">Mentee</option>
+              </select></div>
+              <div><select name="interested_tech" value={this.state.profile.interested_tech} onChange={this.handleInputChange}>
+                <option value="" disabled>What is your primary technology:</option>
+                <option value="SQL">SQL</option>
+                <option value="Java">Java</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="C#">C#</option>
+                <option value="Python">Python</option>
+                <option value="C++">C++</option>
+                <option value="PHP">PHP</option>
+                <option value="ios">ios</option>
+                <option value="Ruby/Rails">Ruby/Rails</option>
+              </select></div>
+              <div><textarea
+                name="blurb"
+                placeholder="Tell us about you..."
+                value={this.state.profile.blurb}
+                onChange={this.handleInputChange}
+              /></div>
+              <div><input
+                name="photo"
+                type="file"
+                onChange={this.handleImageChange}
+              /></div>
+              <div><input type="submit" value="Update Profile" /></div>
+            </form>
+          </div>
         </div>
       </div>
     );

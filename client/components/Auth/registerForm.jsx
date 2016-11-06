@@ -54,7 +54,7 @@ class RegisterForm extends Component {
 
   render() {
     return (
-      <div className="registerForm">
+      <div className="container">
        <h2>Register</h2>
         <form onSubmit={this.handleSubmit}>
           <div><input

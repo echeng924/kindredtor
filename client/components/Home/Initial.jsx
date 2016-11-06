@@ -48,7 +48,7 @@ class Initial extends Component {
             <div>network smarter.</div>
             <div>
               <Link to='/register' className="button">
-                Register Now
+                Get Started
               </Link>
             </div>
           </div>

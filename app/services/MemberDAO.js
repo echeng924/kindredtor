@@ -13,6 +13,9 @@ class MemberDAO {
   static findByEmail({ email }) {
     return db.one(sql.findEmail, [email], row => new Member(row));
   }
+  static findById({ id }) {
+    return db.one(sql.findId, [id], row => new Member(row));
+  }
   static findByMatch({ id }) {
     return db.map(sql.findByMatch, [id], row => new Member(row));
   }

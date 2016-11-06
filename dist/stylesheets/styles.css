@@ -11,7 +11,10 @@ div {
 input {
   font-family: 'Libre Baskerville', serif;
 }
-input[type="button"], input[type="submit"], .button {
+input[type="button"],
+input[type="submit"],
+button,
+.button {
   background: rgba(41,121,255,1);
   border: 0;
   color: white;
@@ -19,6 +22,29 @@ input[type="button"], input[type="submit"], .button {
   font-size: 14px;
   text-shadow: none;
   text-decoration: none;
+  font-family: 'Libre Baskerville', serif;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="file"],
+select, textarea {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  border-bottom: 1px solid rgba(0,0,0,.25);
+  margin-bottom: 20px;
+  padding: 5px 0;
+  font-size: 16px;
+  width: 100%;
+}
+textarea {
+  background: white;
+  border: 1px solid rgba(0,0,0,.25);
+  padding: 5px;
+  min-height: 100px;
 }
 
 .navBar {
@@ -30,9 +56,11 @@ input[type="button"], input[type="submit"], .button {
 }
 .navBar .navLeft {
   flex: 1;
+  font-size: 16px;
 }
 .navBar .navRight {
   text-align: right;
+  font-size: 14px;
 }
 .navBar li {
   display: inline-block;
@@ -43,7 +71,7 @@ input[type="button"], input[type="submit"], .button {
   text-decoration: none;
   color:black;
 }
-.navBar li:first-child a {
+.navBar li .active {
   color:blue;
 }
 
@@ -69,6 +97,11 @@ input[type="button"], input[type="submit"], .button {
   margin-bottom: 15px;
 }
 
+.container {
+  background: rgba(255,255,255,.9);
+  padding: 20px 40px 40px;
+}
+
 .authPage {
   background-image: url('login.jpeg');
   background-size: cover;
@@ -77,33 +110,10 @@ input[type="button"], input[type="submit"], .button {
   box-shadow: 0 0 20px rgba(0,0,0,.15);
   display: flex;
 }
-.authPage input[type="text"],
-.authPage input[type="password"],
-.authPage input[type="file"],
-.authPage select,
-.authPage textarea {
-  -webkit-appearance: none;
-  -webkit-border-radius: 0px;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  border-bottom: 1px solid rgba(0,0,0,.25);
-  margin-bottom: 20px;
-  padding: 5px 0;
-  font-size: 16px;
-  width: 100%;
-}
-.registerForm textarea {
-  background: white;
-  border: 1px solid rgba(0,0,0,.25);
-  padding: 5px;
-  min-height: 100px;
-}
-.registerForm {
+.authPage .container {
   flex: 1;
+  margin: 0;
   margin-right: 2%;
-  background: rgba(255,255,255,.9);
-  padding: 20px 40px 40px;
 }
 .loginForm {
   flex: 1;
@@ -118,8 +128,49 @@ input[type="button"], input[type="submit"], .button {
 }
 
 
+.profilePage .container {
+  width: 80%;
+  margin: 20px 10%;
+  padding: 30px 50px 50px 30px;
+}
+.profilePage .content {
+  display:flex;
+}
+.profilePage .image {
+  width: 30%;
+}
+.profilePage img {
+  width: 100%;
+}
+.profilePage form {
+  flex: 1;
+  margin-left: 50px;
+}
 
-#matchProfile {
-  border: 1px solid black;
-  width: 20rem;
+.matchPage,
+.dashboardPage {
+  padding: 20px 50px 100px;
+}
+.matchPage button {
+  margin-right: 10px;
+}
+.matchPage .profile,
+.dashboardPage .profile {
+  background: rgba(255,255,255,.9);
+  padding: 35px 40px 35px;
+  width: 33%;
+}
+.matchPage .profile div,
+.dashboardPage .profile div {
+  padding: 5px 0;
+}
+.matchPage .profile {
+  margin: 0 auto;
+}
+.matchPage .profile img,
+.dashboardPage .profile img {
+  width: 100%;
+}
+.matchPage .buttons {
+  margin-top:15px;
 }

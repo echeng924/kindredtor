@@ -31,6 +31,17 @@ class MembersController {
               res.status(500).json(error);
              });
   }
+  static getProfilePic(req, res) {
+    let id = req.params.id;
+    MemberDAO.findById({ id })
+             .then((member) => {
+                  res.status(200).send(member.picture);
+             })
+             .catch((err) => {
+                console.error(err);
+                res.status(401).end();
+             });
+  }
   static create(req, res) {
     const memberData = {
       email: req.body.email,

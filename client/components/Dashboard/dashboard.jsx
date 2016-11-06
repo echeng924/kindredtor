@@ -40,20 +40,21 @@ class Dashboard extends Component {
   render() {
     const dashboardElements = this.state.matches.map((indvMatch, idx) => {
         return (
-          <div key={idx}>
+          <div className="profile" key={idx}>
+            <div className="image"><img src={`/api/members/${indvMatch.id}/picture`}/></div>
             <div>First Name: {indvMatch.first_name}</div>
             <div>Last Name: {indvMatch.last_name}</div>
             <div>Email: {indvMatch.email}</div>
             <div>Current Title: {indvMatch.current_title}</div>
             <div>Current Industry: {indvMatch.current_industry}</div>
-            <div>Primary Tech Language: {indvMatch.interested_tech}</div>
+            <div>Tech Language: {indvMatch.interested_tech}</div>
             <div>About Them: {indvMatch.blurb}</div>
           </div>
         );
       });
 
     return (
-      <div>
+      <div className="dashboardPage">
         { dashboardElements }
       </div>
     );

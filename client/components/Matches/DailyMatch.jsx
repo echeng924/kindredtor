@@ -59,17 +59,22 @@ class DailyMatch extends Component {
 
   render() {
     return (
-      <div>
-        Will show matches...what should be returned:
-        <div id="matchProfile">
-          <p><img width="200" src="/auth/picture"/></p>
-          <p>First Name: {this.state.match.first_name}</p>
-          <p>Current Title: {this.state.match.current_title}</p>
-          <p>Current Industry: {this.state.match.current_industry}</p>
-          <p>Tech language: {this.state.match.interested_tech}</p>
-          <p>About them: {this.state.match.blurb}</p>
-          <button onClick={this.matchButtonFunction}>Match</button>
-          <button onClick={this.getOneProfileMatch}>Pass</button>
+      <div className="matchPage">
+        <div className="description">
+          <h1>Matches</h1>
+          <h3>Some description</h3>
+        </div>
+        <div className="profile">
+          <div><img src={`/api/members/${this.state.match.id}/picture`}/></div>
+          <div>First Name: {this.state.match.first_name}</div>
+          <div>Current Title: {this.state.match.current_title}</div>
+          <div>Current Industry: {this.state.match.current_industry}</div>
+          <div>Tech language: {this.state.match.interested_tech}</div>
+          <div>About them: {this.state.match.blurb}</div>
+          <div className="buttons">
+            <button onClick={this.matchButtonFunction}>Match</button>
+            <button onClick={this.getOneProfileMatch}>Pass</button>
+          </div>
         </div>
       </div>
     );
