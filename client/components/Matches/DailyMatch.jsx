@@ -12,6 +12,7 @@ class DailyMatch extends Component {
     this.profileUpdated = this.profileUpdated.bind(this);
     this.handlePostToDb = this.handlePostToDb.bind(this);
     this.matchButtonFunction = this.matchButtonFunction.bind(this);
+    this.getOneProfileMatch = this.getOneProfileMatch.bind(this);
   }
   componentDidMount() {
     if (this.props.profile && this.props.profile.role)
