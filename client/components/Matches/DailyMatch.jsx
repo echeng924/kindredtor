@@ -23,8 +23,6 @@ class DailyMatch extends Component {
   }
 
   //add onclick for next match on decline match button
-
-
   getOneProfileMatch() {
     let roleSelection;
     if(this.props.profile.role === 'Mentor') {

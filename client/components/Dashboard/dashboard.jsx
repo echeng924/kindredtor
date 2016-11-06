@@ -4,45 +4,57 @@ import { Link, withRouter } from 'react-router';
 import Connection from './connection.jsx';
 
 
+
+
 class Dashboard extends Component {
   constructor() {
     super();
     this.state = {
       profile: {},
-      matches: {},
+      matches: [],
     };
+    this.profileUpdated = this.profileUpdated.bind(this)
+;    this.getAllMatches = this.getAllMatches.bind(this);
   }
   componentDidMount() {
-    this.updateAuth();
+    if(this.props.profile && this.props.profile.id) {
+      this.profileUpdated();
+    }
+  }
+
+  profileUpdated() {
+    this.getAllMatches();
   }
 
   //settimeout somewhere...because we'll call the function on componentDidMount, but after updateAuth()
-  // getAllMatches() {
-  //   request.get(`/api/matches/{this.props.profile.id}`)
-  //          .then((matches) => {
-  //            this.setState({matches: matches})
-  //          }).catch((err) => {
-  //             console.log(err)
-  //          });
-  // }
-  //take matches from state, map over them, return first name, last name, email, current title, ...and other things
+  getAllMatches() {
+    console.log(this.props.profile.id);
+    request.get(`/api/members/${this.props.profile.id}`)
+           .then((matches) => {
+             this.setState({ matches: matches.body });
+           }).catch((err) => {
+              console.log(err);
+           });
+  }
+
   render() {
-    let dashboardElements;
-    if (this.state.profile) {
-      dashboardElements = (
-        <div>
-          check that dashboard will render
-        </div>
-      );
-    } else {
-      dashboardElements = (
-        this.props.router.push('/register')
-      );
-    }
+    const dashboardElements = this.state.matches.map((indvMatch, idx) => {
+        return (
+          <div key={idx}>
+            <div>First Name: {indvMatch.first_name}</div>
+            <div>Last Name: {indvMatch.last_name}</div>
+            <div>Email: {indvMatch.email}</div>
+            <div>Current Title: {indvMatch.current_title}</div>
+            <div>Current Industry: {indvMatch.current_industry}</div>
+            <div>Primary Tech Language: {indvMatch.interested_tech}</div>
+            <div>About Them: {indvMatch.blurb}</div>
+          </div>
+        );
+      });
+
     return (
       <div>
         { dashboardElements }
-        <Connection />
       </div>
     );
   }
@@ -50,6 +62,3 @@ class Dashboard extends Component {
 
 export default Dashboard;
 
-
-//get All request to server for matches at '/api/matches'
-//will be an array, map over and create individual match profile
