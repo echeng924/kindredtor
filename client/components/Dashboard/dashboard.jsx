@@ -55,6 +55,8 @@ class Dashboard extends Component {
 
     return (
       <div className="dashboardPage">
+        <h1>Dashboard</h1>
+        <h4>See all your matches below</h4>
         { dashboardElements }
       </div>
     );

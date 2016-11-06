@@ -32,3 +32,17 @@ CREATE TABLE matches (
   member_id1 INTEGER NOT NULL,
   member_id2 INTEGER NOT NULL
 );
+
+
+create table message_group (
+  id SERIAL PRIMARY KEY,
+  member_id1 INTEGER NOT NULL,
+  member_id2 INTEGER NOT NULL
+);
+create table message_text (
+  id SERIAL PRIMARY KEY,
+  group_id INTEGER NOT NULL,
+  sender_id INTEGER not null,
+  text varchar not null
+);
+

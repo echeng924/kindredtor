@@ -24,6 +24,10 @@ const sqlProvider = {
     update: sql('/sql/member/update.sql'),
     updateNoPicture: sql('/sql/member/updateNoPicture.sql'),
   },
+  messages: {
+    getMessagesByGroup: sql('/sql/messages/getMessagesByGroup.sql'),
+    getGroupsByUser: sql('/sql/messages/getGroupsByUser.sql'),
+  },
 };
 
 module.exports = sqlProvider;

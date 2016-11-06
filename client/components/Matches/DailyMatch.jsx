@@ -62,7 +62,7 @@ class DailyMatch extends Component {
       <div className="matchPage">
         <div className="description">
           <h1>Matches</h1>
-          <h3>Some description</h3>
+          <h4>Click <mark>Match</mark> to connect or <mark>Pass</mark> to get another match</h4>
         </div>
         <div className="profile">
           <div><img src={`/api/members/${this.state.match.id}/picture`}/></div>

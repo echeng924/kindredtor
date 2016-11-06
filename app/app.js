@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const matchRouter = require('./routes/matchRouter');
 const memberRouter = require('./routes/memberRouter');
+const messageRouter = require('./routes/messageRouter');
 const authRouter = require('./routes/authRouter');
 const authentication = require('./middleware/authentication');
 const session = require('express-session');
@@ -33,5 +34,7 @@ app.use('/auth', authentication);
 app.use('/auth', authRouter);
 app.use('/api/members', memberRouter);
 app.use('/api/matches', matchRouter);
+app.use('/api/messages', messageRouter);
+
 
 module.exports = app;

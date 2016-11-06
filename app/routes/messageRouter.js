@@ -1,0 +1,9 @@
+const express = require('express');
+const MessagesController = require('../controllers/MessagesController');
+
+const router = express.Router();
+
+router.get('/group/:id', MessagesController.getMessagesByGroup);
+router.get('/user/:id', MessagesController.getGroupsByUser);
+
+module.exports = router;
