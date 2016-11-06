@@ -20,9 +20,10 @@ class MatchesController {
   }
   static create(req, res) {
     const matchData = {
-      mentor_id: req.body.mentor_id,
-      mentee_id: req.body.mentee_id,
+      member_id1: req.body.member_id1,
+      member_id2: req.body.member_id2,
     };
+    console.log("create:", matchData);
     MatchDAO.create(matchData)
              .then((match) => res.status(200).json(match)).catch( (error) => {
               console.log(error);

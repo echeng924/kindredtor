@@ -29,6 +29,6 @@ CREATE TABLE members (
 
 CREATE TABLE matches (
   id SERIAL PRIMARY KEY,
-  mentor_id INTEGER NOT NULL,
-  mentee_id INTEGER NOT NULL
+  member_id1 INTEGER NOT NULL,
+  member_id2 INTEGER NOT NULL
 );

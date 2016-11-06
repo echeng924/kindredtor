@@ -11,8 +11,8 @@ class MatchDAO {
     const value = keyValue[key];
     return db.one(sql.find, [key, value], row => new Match(row));
   }
-  static create({ mentor_id, mentee_id }) {
-    return db.one(sql.create, [mentor_id, mentee_id], row => new Match(row))
+  static create({ member_id1, member_id2 }) {
+    return db.one(sql.create, [member_id1, member_id2], row => new Match(row))
              .catch((err) => console.log('error', err));
   }
   static delete(id) {

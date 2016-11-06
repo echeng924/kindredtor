@@ -1,1 +1,1 @@
-SELECT * FROM matches WHERE mentor_id=$1 OR mentee_id=$1;
+SELECT * FROM matches WHERE member_id1=$1 OR member_id2=$1;

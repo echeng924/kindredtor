@@ -134,7 +134,7 @@ class Profile extends Component {
               type="file"
               onChange={this.handleImageChange}
             />
-            <input type="submit" value="Update Profle" />
+            <input type="submit" value="Update Profile" />
           </form>
           <button>Go to matches</button>
         </div>
