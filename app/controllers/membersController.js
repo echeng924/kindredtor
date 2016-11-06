@@ -20,6 +20,17 @@ class MembersController {
               res.status(500).json(error);
              });
   }
+  static getMemberByMatch(req, res) {
+    console.log(req.params);
+    MemberDAO.findByMatch({ id: req.params.id })
+             .then((member) => {
+                console.log(member);
+                res.status(200).json(member);
+             }).catch( (error) => {
+              console.log(error);
+              res.status(500).json(error);
+             });
+  }
   static create(req, res) {
     const memberData = {
       email: req.body.email,

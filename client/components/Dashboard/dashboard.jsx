@@ -8,24 +8,12 @@ class Dashboard extends Component {
   constructor() {
     super();
     this.state = {
-      profile: [],
-      matches: [],
+      profile: {},
+      matches: {},
     };
   }
   componentDidMount() {
     this.updateAuth();
-  }
-  updateAuth() {
-    request.get('/auth/profile')
-           .then((resp) => {
-            this.setState({
-              profile: resp.body,
-            });
-           }).catch(() => {
-            this.setState({
-              profile: null,
-            });
-           });
   }
 
   //settimeout somewhere...because we'll call the function on componentDidMount, but after updateAuth()
