@@ -132,6 +132,7 @@ textarea {
 .container {
   background: rgba(255,255,255,.9);
   padding: 20px 40px 40px;
+  box-shadow: 0 0 20px rgba(0,0,0,.15);
 }
 
 .authPage {
@@ -194,6 +195,7 @@ textarea {
   display:inline-block;
   vertical-align: top;
   margin-right:2%;
+  box-shadow: 0 0 20px rgba(0,0,0,.15);
 }
 .matchPage .profile div,
 .dashboardPage .profile div {
@@ -223,6 +225,7 @@ textarea {
 .messagePage .groupList {
   flex: 1;
   margin-right:50px;
+  box-shadow: 0 0 20px rgba(0,0,0,.15);
 }
 .messagePage .profile {
   background: rgba(255,255,255,.9);
@@ -251,6 +254,7 @@ textarea {
   flex: 1;
   background: rgba(255,255,255,.9);
   padding: 35px 30px 35px;
+  box-shadow: 0 0 20px rgba(0,0,0,.15);
 }
 .messagePage .messageList .title {
   font-size: 22px;
