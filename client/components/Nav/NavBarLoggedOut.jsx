@@ -22,7 +22,6 @@ class NavBarLoggedOut extends Component {
           <div className="navLeft">kindredtor</div>
           <div className="navRight">
             <li><Link to='/' id="Home" className={this.props.path=='/'?'active':''}>Home</Link></li>
-            <li><Link to='/about' id="About" className={this.props.path=='/about'?'active':''}>About</Link></li>
             <li><Link to='/register' id="register" className={this.props.path=='/register'?'active':''}>Get Started</Link></li>
           </div>
         </div>

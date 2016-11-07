@@ -27,6 +27,7 @@ const sqlProvider = {
   messages: {
     getMessagesByGroup: sql('/sql/messages/getMessagesByGroup.sql'),
     getGroupsByUser: sql('/sql/messages/getGroupsByUser.sql'),
+    createGroup: sql('/sql/messages/createGroup.sql'),
     createMessage: sql('/sql/messages/createMessage.sql'),
   },
 };

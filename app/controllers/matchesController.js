@@ -1,4 +1,5 @@
 const MatchDAO = require('../services/MatchDAO.js');
+const MessageDAO = require('../services/MessageDAO');
 
 class MatchesController {
   static getAllMatches(req, res) {
@@ -25,7 +26,10 @@ class MatchesController {
     };
     console.log("create:", matchData);
     MatchDAO.create(matchData)
-             .then((match) => res.status(200).json(match)).catch( (error) => {
+             .then((match) => {
+              MessageDAO.createGroup(matchData);
+              res.status(200).json(match);
+            }).catch( (error) => {
               console.log(error);
               res.status(500).json(error);
              });

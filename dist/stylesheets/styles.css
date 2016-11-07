@@ -8,6 +8,38 @@ body {
 div {
   box-sizing: border-box;
 }
+
+.aboutPage {
+  margin: 50px 5%;
+  display: flex;
+}
+.aboutImage {
+  display: inline-block;
+  vertical-align: top;
+}
+.aboutImage img {
+  height: 500px;
+}
+.aboutPage .content {
+  background: rgba(41,121,255,0.8);
+  color: white;
+  display: inline-block;
+  flex: 1;
+  vertical-align: top;
+  padding: 150px 50px;
+  height: 500px;
+  margin-left: 8px;
+}
+.howItWorksPage {
+  background: white;
+  padding: 20px;
+  text-align: center;
+  margin: 0 5% 5%;
+}
+.howItWorksPage h2 {
+  font-size: 30px;
+}
+
 input {
   font-family: 'Libre Baskerville', serif;
 }
@@ -171,9 +203,14 @@ textarea {
   display: block;
   margin: 0 auto;
 }
+.matchPage .profile .image,
+.dashboardPage .profile .image {
+  text-align: center;
+}
 .matchPage .profile img,
 .dashboardPage .profile img {
-  width: 100%;
+  height: 200px;
+  max-width: 100%;
 }
 .matchPage .buttons {
   margin-top:15px;
@@ -190,6 +227,7 @@ textarea {
 .messagePage .profile {
   background: rgba(255,255,255,.9);
   padding: 15px 30px 15px;
+  margin-bottom:15px;
 }
 .messagePage .profile .image,
 .messagePage .profile .details {
@@ -200,8 +238,13 @@ textarea {
   padding-left:20px;
   padding-top:5px;
 }
+.messagePage .profile .image {
+  text-align: center;
+  width: 150px;
+}
 .messagePage .profile img {
-  width: 100px;
+  height: 80px;
+  max-width:100%;
 }
 
 .messagePage .messageList {

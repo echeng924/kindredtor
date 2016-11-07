@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import request from 'superagent';
-import NavBarLoggedIn from './Nav/NavBarLoggedIn.jsx';
 import NavBarLoggedOut from './Nav/NavBarLoggedOut.jsx';
 // import Initial from '/Home/Initial.jsx';
 
