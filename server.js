@@ -10,6 +10,10 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const config = require('./webpack.config');
 const app = require('./app/app');
 
+if(!process.env.PORT) {
+  require('dotenv').config();
+}
+
 if (process.env.ENV === 'dev') {
   const compiler = webpack(config);
   const middleware = webpackMiddleware(compiler, {
