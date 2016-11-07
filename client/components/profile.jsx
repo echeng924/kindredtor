@@ -93,7 +93,7 @@ class Profile extends Component {
                 value={this.state.profile.current_title}
                 onChange={this.handleInputChange}
               /></div>
-              <div><select name="industry" value={this.state.profile.current_industry} onChange={this.handleInputChange}>
+              <div><select name="current_industry" value={this.state.profile.current_industry} onChange={this.handleInputChange}>
                 <option value="" disabled>Current Industry:</option>
                 <option value="Biotechnology">Biotechnology</option>
                 <option value="Education">Education</option>
