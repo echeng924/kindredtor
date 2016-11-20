@@ -25,8 +25,10 @@ New users fill out a profile to help us learn a little more about them! Add a ph
 Matches are generated based on whether users would like to be a mentor or mentee and what their primary tech language is. 
 ![](/dist/stylesheets/Matches.png)
 
-###Step 2:
+###Step 3:
 Connect and communicate directly with your matches with kindredtor's built in messaging function! 
 ![](/dist/stylesheets/Messages.png)
+
+###Thanks for reading!
 
 
